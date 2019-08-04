@@ -1,0 +1,58 @@
+<div class="main-panel">
+      <div class="content ">
+        <div class="container-fluid ">
+            {{>_msg}}
+            {{>_errors}}
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header ">
+                  <h4 class="card-title text-center">Login to your Account</h4>
+                </div>
+                <div class="card-body">
+                  <form class="" action="/users/login" method="post">
+                              <br>
+                              <a href="/auth/google">
+                              <div class="card-header card-header-danger">
+                              <h4 class="card-title text-center">Login with google</h4>
+                              </div>
+                              </a>
+                              <hr>
+                              <br>
+                              <a href="/auth/google">
+                              <div class="card-header card-header-info">
+                              <h4 class="card-title text-center">Login with facebook</h4>
+                              </div>
+                              </a>
+                              <hr>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email</label>
+                          <input type="email" class="form-control" value="" name="email" >
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Password</label>
+                          <input type="password" class="form-control" value="" name="password" >
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-success btn-block" name="button">Login</button>
+                      <div class="row">
+                        <div class="container mt-3 ml-0 col-md-3">
+                          <p><a href="#">Reset Password</a></p>
+                        </div>
+
+                        <div class="container col-md-3 mt-3 ml-0 ">
+                          <p><a href="/users/register">Register</a></p>
+                        </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

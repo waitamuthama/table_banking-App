@@ -1,0 +1,108 @@
+<!--==========================deposit statement start=================================-->
+
+
+<!-- large size Modal -->
+<div class="modal fade" id="depositStatement" tabindex="-1" role="dialog" aria-labelledby="Modal-large-demo-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <div class="container text-success">
+            <h1>Deposit statement</h1>
+          </div>
+            <div class="container">
+              <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-info">
+                  <a href="#" class="text-white"><h1>Download <span class="ti-download"></span></h1></a>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <tr>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>amount</th>
+                        <th>date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each deposits}}
+                        <tr>
+                          <td>{{fname}}</td>
+                          <td>{{email}}</td>
+                          <td>{{amount}}</td>
+                          <td>{{date}}</td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--==========================deposit statement end=================================-->
+
+
+
+{{>_sidebar}}
+    <div class="main-panel">
+    {{>_navbar}}
+    <div class="content">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="container col-md-4 mt-4">
+             <a href="#"data-toggle="modal" data-backdrop="static" data-target="#depositStatement" class="genric-btn success-border circle"><h3>Genereate Deposits statement</h3></a>
+           </div>
+           <div class="col-md-7">
+             <div class="card">
+               <div class="card-header card-header-primary">
+                 <h4 class="card-title ">Deposit Report</h4>
+                 <p class="card-category"></p>
+               </div>
+               <div class="card-body">
+
+                 <div class="tab-pane" id="settings">
+                  <table class="table">
+                    <tbody>
+                {{#each deposits}}
+               <tr>
+                 <td>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                       <input class="form-check-input" type="checkbox" value="">
+                       <span class="form-check-sign">
+                         <span class="check"></span>
+                       </span>
+                     </label>
+                   </div>
+                 </td>
+                 <td>Thanks {{fname}} for making your deposits of Ksh.{{amount}}. </br>
+                  <span>{{date}}</span>
+                 </td>
+                 <td class="td-actions text-right">
+                   <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                     <i class="material-icons">close</i>
+                   </button>
+                 </td>
+               </tr>
+               {{else}}
+               <div class="container">
+                 <h3>No deposit records</h3>
+               </div>
+               {{/each}}
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>

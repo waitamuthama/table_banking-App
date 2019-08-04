@@ -1,0 +1,216 @@
+{{!--
+{{>_admin_sidebar}}
+    <div class="main-panel">
+    {{>_navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Edit members Details</h4>
+                </div>
+                <div class="card-body">
+
+                  {{>_msg}}
+
+                  <form class="" action="/admin/edit/{{user.id}}" method="post">
+
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">name</label>
+                          <input type="text" class="form-control" value="{{user.firstName}} " name="name" >
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control" value="{{user.email}}" name="email" >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">phone</label>
+                          <input type="text" class="form-control" value="{{user.phone}}" name="phone" >
+                        </div>
+                      </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Location</label>
+                            <input type="text"  name="location" value="{{user.location}}" class="form-control">
+                          </div>
+                        </div>
+
+                    </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> --}}
+
+
+
+
+      <!-- large size Modal -->
+      <div class="modal fade" id="Modal-large-demo" tabindex="-1" role="dialog" aria-labelledby="Modal-large-demo-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content text-center">
+            <div class="modal-body">
+              {{!-- <section class="blog_area section_gap"> --}}
+                <div class="container text-success">
+                  <h1>Update your profile {{user.firstName}}</h1>
+                </div>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-lg-4">
+                            <div class="blog_right_sidebar">
+                                <aside class="single_sidebar_widget author_widget">
+                                    <img class="author_img rounded-circle" src="/images/uploads/{{user.image}}" alt="">
+                                    <h4>{{user.firstName}} {{user.lastName}}</h4>
+                                    <p>member</p>
+                                    <div class="social_icon">
+                                        <a href="#"><i class="ti-facebook"></i></a>
+                                        <a href="#"><i class="ti-twitter"></i></a>
+                                        <a href="#"><i class="ti-github"></i></a>
+                                        <a href="#"><i class="ti-linkedin"></i></a>
+                                    </div>
+                                    <p>Never say goodbye before the end it comes</p>
+                                    <div class="br"></div>
+                                </aside>
+                            </div>
+                        </div>
+                          <div class="col-lg-8">
+                              <div class="blog_left_sidebar">
+                                  <article class="row blog_item">
+                                    <form class="" enctype="multipart/form-data" action="/admin/edit/{{user.id}}" method="post">
+                                    <div class="modal-body mx-3">
+                                      <div class="md-form mb-5">
+                                        <input type="text" id="firstName"  value="{{user.firstName}}" name="fname" class="form-control validate" >
+                                        <label  data-success="right" >Your Name</label>
+                                      </div>
+                                      <div class="md-form mb-5">
+                                        <input type="email" id="email"  value="{{user.email}}" name="email"  class="form-control validate" >
+                                        <label  data-success="right" >Your email</label>
+                                      </div>
+
+                                      <div class="md-form mb-4">
+                                        <input type="number" id="phone" value="{{user.phone}}" name="phone" class="form-control validate">
+                                        <label data-error="wrong" data-success="right" for="orangeForm-phone">Your Phone</label>
+                                      </div>
+
+                                      <div class="md-form mb-4">
+                                        <input type="text" id="location" value=" {{user.location}}" name="location" class="form-control validate">
+                                        <label data-error="wrong" data-success="right" for="orangeForm-pass"> location </label>
+                                      </div>
+                                        <input type="file" name="image" value="{{user.image}}">
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-center">
+                                      <button type="submit"  class="btn btn-deep-orange">Update Now</button>
+                                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                    </form>
+                                  </article>
+                              </div>
+                              <hr>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!--=====================Profile Modal end=========================-->
+
+
+
+
+
+
+
+      <!--================profile Area =================-->
+      {{>_admin_sidebar}}
+          <div class="main-panel">
+      {{>_navbar}}
+         <section class="blog_area section_gap">
+             <div class="container">
+               {{>_errors}}
+               {{>_msg}}
+                 <div class="row">
+
+                   <div class="col-lg-4 text-center">
+                       <div class="blog_right_sidebar">
+
+                           <aside class="single_sidebar_widget author_widget">
+                               <img class="author_img rounded-circle" src="/images/uploads/{{user.image}}" alt="">
+                               <h4>{{user.firstName}} {{user.lastName}}</h4>
+                               <p>member</p>
+                               <div class="social_icon">
+                                   <a href="#"><i class="ti-facebook"></i></a>
+                                   <a href="#"><i class="ti-twitter"></i></a>
+                                   <a href="#"><i class="ti-github"></i></a>
+                                   <a href="#"><i class="ti-linkedin"></i></a>
+                               </div>
+                               <p>Never say goodbye before the end it comes</p>
+                               <div class="br"></div>
+                           </aside>
+
+                       </div>
+                   </div>
+
+
+
+
+                     <div class="col-lg-8">
+                         <div class="blog_left_sidebar">
+                             <article class="row blog_item">
+                                 <div class="col-md-3 text-justify">
+                                     <div class="blog_info text-center">
+                                             <h3>Outstanding loan :{{user.loanamount}} </h3>
+                                             <hr>
+                                             <h3>Interest {{user.interest}}</h3>
+                                             <hr>
+                                             <h3>phone:{{user.phone}}</h3><hr>
+                                             <h6>Date joined:<a href=""> {{user.date}}</i></a></h6>
+                                             <hr>
+                                             <h4>location: {{user.location}}</h4>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-9 ">
+                                     <div class="blog_post">
+                                         <div class="blog_details">
+                                             <a href="single-blog.html">
+                                                 <h2>About me</h2>
+                                             </a>
+                                             <p>{{user.about}}</p>
+                                           <button type="button" class="nav-link blog_btn btn-warning" data-toggle="modal" data-backdrop="static" data-target="#Modal-large-demo" name="button">
+                                              <h3> Click to Edit user details </h3>
+                                           </button>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
+                         </div>
+                         <hr>
+                     </div>
+                 </div>
+             </div>
+         </section>

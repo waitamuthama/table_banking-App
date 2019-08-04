@@ -1,0 +1,85 @@
+
+{{>_sidebar}}
+    <div class="main-panel">
+    {{>_navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Request Loan</h4>
+                  <p class="card-category">Complete Loan requestt</p>
+                </div>
+                <div class="card-body">
+
+                  {{>_msg}}
+
+                  <form class="" action="" method="post">
+
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">regno</label>
+                          <input type="text" class="form-control" value="{{user.regno}}" name="regno" >
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">name</label>
+                          <input type="text" class="form-control" value="{{user.name}} " name="name" >
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control" value="{{user.email}}" name="email" >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">phone</label>
+                          <input type="text" class="form-control" value="{{user.phone}}" name="phone" >
+                        </div>
+                      </div>
+
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Account</label>
+                            <input type="number"  name="account" value="{{user.phone}}" class="form-control">
+                          </div>
+                        </div>
+
+                    </div>
+
+                      <hr>
+                      <div class="container info">
+                        <h4>Enter amount of loan to request for</h4>
+                      </div>
+                      <hr>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">loan Amount</label>
+                          <input type="number"  name="amount" value="" class="form-control">
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary pull-right">submit</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

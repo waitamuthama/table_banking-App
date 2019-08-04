@@ -1,0 +1,185 @@
+<!--====================================register Modal start============================================-->
+<div class="modal fade br-5" id="modalregForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {{!-- {{>_msg}}
+      {{>_errors}} --}}
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Register here</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="container mt-1 text-center">
+            <a  href="/auth/google" id="register" class="btn btn-danger" ><i class="ti-google"></i> Register with google</a>
+           <hr>
+            <a href="/auth/facebook" id="register" class="btn btn-primary"><i class="ti-facebook"></i> Register with facebook</a>
+              <hr>
+          </div>
+      <form class="" action="/users/register" id="regform" method="post">
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" id="fname" name="firstName" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="orangeForm-name">Your First Name</label>
+          </div>
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" id="lname" name="lastName" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="orangeForm-name">Your Last Name</label>
+          </div>
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="email" id="email" name="email" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="orangeForm-email">Your email address</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="password" name="password" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="orangeForm-pass"> Enter Password </label>
+          </div>
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="password1" name="password1" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="orangeForm-pass"> Confirm password</label>
+          </div>
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" id="register" class="btn btn-primary btn-block">Submit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!--====================================register Modal End============================================-->
+
+
+<!--====================================Login Modal start============================================-->
+<div class="modal fade" id="modalloginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {{!-- {{>_msg}}
+      {{>_errors}} --}}
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Login to your account</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="container mt-1 text-center">
+        <a  href="/auth/google" id="register" class="btn btn-danger" ><i class="ti-google"></i> Login with google</a>
+       <hr>
+        <a href="/auth/facebook" id="register" class="btn btn-primary"><i class="ti-facebook"></i> login with facebook</a>
+          <hr>
+      </div>
+      <form class="" action="/users/login" method="post">
+        <div class="modal-body mx-3">
+
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="email" id="orangeForm-email" value="{{user.email}}" name="email" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="orangeForm-pass" name="password" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="orangeForm-pass"> Enter Password </label>
+          </div>
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" data-dismiss="static" class="btn btn-primary btn-block">Login</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!--====================================Login Modal End============================================-->
+
+
+<!--================ Start Header Menu Area =================-->
+<header class="header_area">
+  <div class="main_menu">
+    <div class="search_input" id="search_input_box">
+      <div class="container">
+        <form class="d-flex justify-content-between" method="" action="">
+          <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
+          <button type="submit" class="btn"></button>
+          <span class="ti-close" id="close_search" title="Close Search"></span>
+        </form>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand logo_h" href="index.html"><img src="/img/banking.png" alt="" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class=" container collapse navbar-collapse offset" id="navbarSupportedContent">
+          <ul class="nav navbar-nav menu_nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/about">About</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="/conatct">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link search" id="search">
+                <i class="ti-search"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!--================ End Header Menu Area =================-->
+
+<!--================ Start Home Banner Area =================-->
+<section class="home_banner_area">
+  <div class="banner_inner">
+    <div class="container">
+      {{>_msg}}
+      {{>_errors}}
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="banner_content text-center">
+            <p class="text-uppercase">
+              Online table-banking system.
+            </p>
+            <h2 class="text-uppercase mt-4 mb-5">
+              One Step Ahead FINANCIALLY
+            </h2>
+            <div>
+              <a href="/users/register" id="register" class="primary-btn2 mb-3 mb-sm-0" data-toggle="modal"
+                data-backdrop="static" data-target="#modalregForm">REGISTER</a>
+              <a href="" class="primary-btn ml-sm-3 ml-0" data-toggle="modal" data-backdrop="static"
+                data-target="#modalloginForm">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================ End Home Banner Area =================-->

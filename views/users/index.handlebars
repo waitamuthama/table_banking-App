@@ -1,0 +1,260 @@
+
+            {{>_sidebar}}
+            <div class="main-panel">
+            {{>_navbar}}
+            <div class="content">
+            <div class="container-fluid">
+              {{>_msg}}
+              {{>_errors}}
+              {{>_breadcrump}}
+              <hr>
+            <div class="row">
+
+              <!--=====================start comment modal============================-->
+              <div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+              <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                 <div class="modal-header text-center">
+                   <h4 class="modal-title w-100 font-weight-bold">Please leave comment {{user.firstNamet}} {{user.lastName}}</h4>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <form action="/users/comments/{{user.id}}" method="post">
+                 <div class="modal-body mx-3">
+                   <div class="md-form mb-5">
+                     <i class="fas fa-envelope prefix grey-text"></i>
+                     <input type="text"  value="" name="title"  class="form-control validate">
+                     <label  data-success="right">Title</label>
+                   </div>
+                   <div class="md-form mb-4">
+                     <i class="fas fa-lock prefix grey-text"></i>
+                     <textarea name="message" rows="8" cols="80"></textarea>
+                     <label data-error="wrong" data-success="right" for="orangeForm-pass"> Enter message </label>
+                   </div>
+                 </div>
+                 <div class="modal-footer d-flex justify-content-center">
+                   <button type="submit" class="btn btn-deep-orange">Submit</button>
+                 </div>
+               </form>
+               </div>
+              </div>
+              </div>
+              <!--===================== end comment modal============================-->
+
+            <!--=====================modal pay loan============================-->
+            <div class="modal fade" id="payLoan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+            <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               {{>_msg}}
+               {{>_errors}}
+               <div class="modal-header text-center">
+                 <h4 class="modal-title w-100 font-weight-bold">Pay Loan of {{user.loanamount}}</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               <form class="" action="/pay/payment/{{user.id}}" method="post">
+               <div class="modal-body mx-3">
+                 <div class="md-form mb-5">
+                   <i class="fas fa-user prefix grey-text"></i>
+                   <input type="text" id="orangeForm-name" value="{{user.firstName}}" name="fname" class="form-control validate" readonly>
+                   <label  data-success="right"  for="orangeForm-name">Your Name</label>
+                 </div>
+                 <div class="md-form mb-5">
+                   <i class="fas fa-envelope prefix grey-text"></i>
+                   <input type="email" id="orangeForm-email" value="{{user.email}}" name="email"  class="form-control validate" readonly>
+                   <label  data-success="right" for="orangeForm-email">Your email</label>
+                 </div>
+
+                 <div class="md-form mb-4">
+                   <i class="fas fa-lock prefix grey-text"></i>
+                   <input type="number" id="orangeForm-pass" value="{{user.phone}}" name="phone" class="form-control validate">
+                   <label data-error="wrong" data-success="right" for="orangeForm-pass">Your Phone</label>
+                 </div>
+
+                 <div class="md-form mb-4">
+                   <i class="fas fa-lock prefix grey-text"></i>
+                   <input type="number" id="orangeForm-pass" value="{{user.loanamount}}" name="amount" class="form-control validate">
+                   <label data-error="wrong" data-success="right" for="orangeForm-pass"> Enter Amount </label>
+                 </div>
+
+               </div>
+               <div class="modal-footer d-flex justify-content-center">
+                 <button type="submit" class="btn btn-deep-orange">Pay</button>
+               </div>
+
+             </form>
+             </div>
+            </div>
+            </div>
+            <!--===================== end modal pay loan============================-->
+
+
+            <!-- Modal cash Payment -->
+            <div class="modal fade" id="requestloan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                {{>_msg}}
+                {{>_errors}}
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Requst Loan</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form class="" action="/loan/request/{{user.id}}" method="post">
+                <div class="modal-body mx-3">
+                  <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="orangeForm-name" value="{{user.firstName}}" name="fname" class="form-control validate" readonly>
+                    <label  data-success="right"  for="orangeForm-name">Your Name</label>
+                  </div>
+                  <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="orangeForm-email" value="{{user.email}}" name="email"  class="form-control validate" readonly>
+                    <label  data-success="right" for="orangeForm-email">Your email</label>
+                  </div>
+
+                  <div class="md-form mb-4">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="number" id="orangeForm-pass" value="{{user.phone}}" name="phone" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Your Phone</label>
+                  </div>
+
+              <h3 class="text-heading  text-center text-success"><b>Select amount to request for.</b></h3>
+                 <div class="row ">
+                   <div class="container text-center mb-2">
+                        <button input type="radio" name="amount" value="500" type="submit" class="genric-btn info circle">500</button>
+                     {{#each users.issue}}
+                     <button input type="radio" name="amount" value="{{amount}}" type="submit" class="genric-btn info circle">{{amount}}</button>
+                     {{/each}}
+                   </div>
+                </div>
+              </div>
+              </form>
+              </div>
+            </div>
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-info card-header-icon">
+                <a href=""  data-toggle="modal" data-backdrop="static" data-target="#requestloan">
+                <div class="card-icon">
+                <i class="material-icons">attach_money</i>
+                </div>
+                <p class="card-category"></p>
+                <h3 class="card-title">Request Loan</h3>
+                <div class="text-center">
+                </div>
+              </div>
+              </a>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-danger">help</i>
+                  <a href="#">Get assisted on how to create account</a>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+
+                    <!--==============end modAL cash payment===================-->
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+              <a href="/account/create">
+                <div class="card-icon">
+                  <i class="material-icons">account_balance</i>
+                </div>
+                <p class="card-category"></p>
+                <h3 class="card-title">Create Account</h3>
+              </div>
+            </a>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-danger">help</i>
+                  <a href="#">Get assisted on how to create account</a>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <a href="/deposit/make">
+              <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">store</i>
+                </div>
+                  <h3 class="card-title">Deposit Money</h3>
+              </div>
+            </a>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-danger">help</i>Get Assisted on how to deposit money
+                </div>
+              </div>
+            </div>
+            </div>
+
+            {{!-- <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <a href="/pay/payment">
+              <div class="card-header card-header-danger card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">info_outline</i>
+                </div>
+              <h3 class="card-title">Pay your Loan</h3>
+              </div>
+            </a>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons  text-danger">help</i> Get assisted on how to pay loan on time
+                </div>
+              </div>
+            </div>
+            </div> --}}
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-info card-header-icon">
+                <a href=""  data-toggle="modal" data-backdrop="static" data-target="#payLoan">
+                <div class="card-icon">
+                <i class="material-icons">store</i>
+                </div>
+                <p class="card-category"></p>
+                <h3 class="card-title"> Pay Loan</h3>
+                <div class="text-center">
+                </div>
+              </div>
+              </a>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-danger">help</i>
+                  <a href="#">Get assisted on how to create account</a>
+                </div>
+              </div>
+            </div>
+            </div>
+
+                <div class="container">
+                  <hr>
+                  <a href="" class="btn btn-success" data-toggle="modal" data-backdrop="static" data-target="#comment">
+                  <i class="ti-comment"></i> Leave Comment
+                  </a>
+                <a  href="/users/comments" class="btn btn-info">View Comments </a>
+                </div>
+
+
+            <footer class="footer">
+
+            </footer>
+            </div>
+            </div>

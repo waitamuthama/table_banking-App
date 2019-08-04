@@ -1,0 +1,415 @@
+
+<!--===============================blacklist members=============================-->
+<!-- large size Modal -->
+<div class="modal fade" id="membersModal" tabindex="-1" role="dialog" aria-labelledby="Modal-large-demo-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">close &times;</span>
+        </button>
+          <div class="container text-success">
+            <h1>Members List</h1>
+          </div>
+            <div class="container">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    {{!-- <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search here">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="ti-search"></i></button>
+                        </span>
+                    </div> --}}
+                    <thead class=" text-primary">
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      {{!-- <th>Location</th> --}}
+                      <th>Status</th>
+                      <th>loanamount</th>
+                      <th>interest</th>
+
+                    </thead>
+                    <tbody>
+                       {{#each members}}
+                      <tr>
+                        <td >
+                          <form class=""  method="post">
+                            <a class="btn btn-primary btn-link btn-sm" href="/admin/edit/{{id}}">
+                            <i class="material-icons">edit</i>
+                          </form>
+                        </td>
+                         <td>
+                            <form method="post" action="/admin/{{id}}?_method=DELETE">
+                             <input type="hidden" name="_method" value="DELETE">
+                             <button type="submit" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                             <i class="material-icons">close</i>
+                           </button>
+                           </form>
+                         </td>
+
+                           <td>
+                             <form class="" action="/admin/blacklist/{{id}}" method="post">
+                             <button type="submit" rel="tooltip" title="Remove" class="btn btn-warning btn-link btn-sm">blacklist
+                             </button>
+                             </form>
+                            </td>
+                        <td>{{firstName}}</td>
+                        <td>{{phone}}</td>
+                        <td>{{email}}</td>
+                        {{!-- <td>{{location}}</td> --}}
+                        <td>{{status}}</td>
+                        <td>{{loanamount}}</td>
+                        <td>{{interest}}</td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--===============================blacklist members=============================-->
+
+
+
+
+
+<!--======================Open registration modal====================================-->
+<div class="modal fade" id="openregistration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
+   {{>_msg}}
+   {{>_errors}}
+   <div class="modal-header text-center">
+     <h4 class="modal-title w-100 font-weight-bold">Open Registration</h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="col-md-12 text-center">
+     <div class="card card-chart">
+       <div class="card-body">
+         <h4 id="reg" class="card-title">Registration Module</h4>
+         <br>
+         <form class="" action="/admin/RegistrationModule/open" id="register" method="post">
+           <button id="#regbtn" type="submit" class="primary-btn2 ml-sm-3 ml-0" name="button">Open Registration</button>
+         </form>
+       </div>
+       <div class="card-footer">
+         <div class="stats">
+           <i class="material-icons">access_time</i> disable sent 2 days ago
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+<!--==========================open registration modal================================-->
+
+<!--======================Close registration modal====================================-->
+<div class="modal fade" id="closeregistration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
+   {{>_msg}}
+   {{>_errors}}
+   <div class="modal-header text-center">
+     <h4 class="modal-title w-100 font-weight-bold">Close Registration </h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="col-md-12 text-center">
+     <div class="card card-chart">
+       <div class="card-body">
+         <h4 id="reg" class="card-title">Registration Module close</h4>
+         <br>
+         <form class="" action="/admin/RegistrationModule/close" id="register" method="post">
+           <button id="#regbtn" type="submit" class="primary-btn2 ml-sm-3 ml-0" name="button">close Registration</button>
+         </form>
+       </div>
+       <div class="card-footer">
+         <div class="stats">
+           <i class="material-icons">access_time</i> disable sent 2 days ago
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+<!--==========================close registration modal================================-->
+
+
+<!--======================Openinterestclaims modal====================================-->
+<div class="modal fade" id="openinterestclaims" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
+   {{>_msg}}
+   {{>_errors}}
+   <div class="modal-header text-center">
+     <h4 class="modal-title w-100 font-weight-bold">Interest claims </h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="col-md-12 text-center">
+     <div class="card card-chart">
+       <div class="card-body">
+         <h4 class="card-title">Open interest claims</h4>
+         <br>
+         <form class="" action="/admin/interestclaims" method="post">
+           <button type="submit"  class="primary-btn2 mb-3 mb-sm-0" name="button">Open interest Claims</button>
+         </form>
+       </div>
+       <div class="card-footer">
+         <div class="stats">
+           <i class="material-icons">access_time</i> opened 4 minutes ago
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+<!--==========================close openinterestclaims modal================================-->
+
+
+<!--======================Openinterestclaims modal====================================-->
+<div class="modal fade" id="closeinterestclaims" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
+   {{>_msg}}
+   {{>_errors}}
+   <div class="modal-header text-center">
+     <h4 class="modal-title w-100 font-weight-bold">Interest claims </h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="col-md-12 text-center">
+     <div class="card card-chart">
+       <div class="card-body">
+         <h4 class="card-title">close interest claims</h4>
+         <br>
+         <form class="" action="/admin/interestclaims/disable" method="post">
+           <button type="submit"  class="primary-btn2 mb-3 mb-sm-0" name="button">close interest Claims</button>
+         </form>
+       </div>
+       <div class="card-footer">
+         <div class="stats">
+           <i class="material-icons">access_time</i> opened 4 minutes ago
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+<!--==========================close openinterestclaims modal================================-->
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <div class="logo">
+        <a href="" class="simple-text logo-normal">
+          Admin
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="/admin/index1">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" data-toggle="modal" data-backdrop="static" data-target="#openregistration" href="#">
+              <i class="material-icons"></i>
+              <p>Open Registration</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" data-toggle="modal" data-backdrop="static" data-target="#closeregistration" href="#">
+              <i class="material-icons"></i>
+              <p>Close Registration</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+           <a class="nav-link" data-toggle="modal" data-backdrop="static" data-target="#openinterestclaims" href="#">
+              <i class="material-icons"></i>
+              <p>Open interest claims</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+           <a class="nav-link" data-toggle="modal" data-backdrop="static" data-target="#closeinterestclaims" href="#">
+              <i class="material-icons"></i>
+              <p>Close interest claims</p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+           <a class="nav-link"  href="/admin/blacklistedmembers">
+              <i class="material-icons"></i>
+              <p>blacklisted members</p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+           <a class="nav-link"  href="/admin/blacklistedmembers">
+              <i class="material-icons">person</i>
+              <p>Register member</p>
+            </a>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+    {{>_navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          {{>_msg}}
+          {{>_errors}}
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <a type="submit"data-toggle="modal" data-backdrop="static" data-target="#membersModal">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">content_copy</i>
+                  </div>
+                  <p class="card-category">Total members</p>
+                  <h3 class="card-title"> 200
+                    <small>members</small>
+                  </h3>
+                </div>
+              </a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">store</i>
+                  </div>
+                  <p class="card-category">Total Revenue</p>
+                  <h3 class="card-title">Ksh:34,245
+                  <small>cash</small>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">info_outline</i>
+                  </div>
+                  <p class="card-category">Loan requests</p>
+                  <h3 class="card-title">75 </br>
+                    <small>Total</small>
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <a href="/admin/deposits">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">info_outline</i>
+                  </div>
+                  <p class="card-category">Deposits</p>
+                  <h3 class="card-title">75 </br>
+                    <small>Total</small>
+                  </h3>
+                </div>
+              </a>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <div class="card card-chart">
+                <div class="card-body">
+                  <h4 class="card-title">blacklist Members</h4>
+                  <br>
+                    <button type="submit"data-toggle="modal" data-backdrop="static" data-target="#membersModal"  class="primary-btn2 mb-3 mb-sm-0" name="button">blacklist Members</button>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-body">
+                  <h4 class="card-title">disable loan requests</h4>
+                  <br>
+                  <form class="" action="/admin/loanrequests/disable" method="post">
+                    <button type="submit" class="primary-btn ml-sm-3 ml-0" name="button">disable</button>
+                  </form>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> disable sent 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-body">
+                  <h4 id="reg" class="card-title">Open loan requests</h4>
+                  <br>
+                  <form class="" action="/admin/loanrequests/open" id="register" method="post">
+                    <button id="#regbtn" type="submit" class="primary-btn2 ml-sm-3 ml-0" name="button">Open</button>
+                  </form>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> disable sent 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+
+{{!--
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-body">
+                  <h4 class="card-title">Close Registration Module</h4>
+                  <br>
+                  <form class="" action="/admin/RegistrationModule/close" method="post">
+                    <button type="submit" class="primary-btn2 ml-sm-3 ml-0" name="button">Close Registration</button>
+                  </form>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> disable sent 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div> --}}
+
+
+        </div>
+      </div>

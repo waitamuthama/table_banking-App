@@ -1,0 +1,65 @@
+
+{{>_admin_sidebar}}
+    <div class="main-panel">
+    {{>_navbar}}
+    <div class="content">
+      {{>_msg}}
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-md-12">
+             <div class="card">
+               <div class="card-header card-header-primary">
+                 <h4 class="card-title ">All members Report</h4>
+                 <p class="card-category"></p>
+               </div>
+               <div class="card-body">
+                 <div class="table-responsive">
+                   <table class="table">
+
+                    <form class="" action="" method="post">
+                      <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="Search...">
+                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                          <i class="material-icons">search</i>
+                          <div class="ripple-container"></div>
+                        </button>
+                      </div>
+                    </form>
+                     <thead class=" text-primary">
+                       <th>Name</th>
+                       <th>Phone</th>
+                       <th>Email</th>
+                       <th>Location</th>
+                       <th>Status</th>
+                       <th>loanamount</th>
+                       <th>interest</th>
+                       <th></th>
+                       <th></th>
+                       <th></th>
+
+                     </thead>
+                     <tbody>
+                        {{#each members }}
+                       <tr>
+                         <td>{{firstName}}</td>
+                         <td>{{phone}}</td>
+                         <td>{{email}}</td>
+                         <td>{{location}}</td>
+                         <td>{{status}}</td>
+                         <td>{{loanamount}}</td>
+                         <td>{{interest}}</td>
+                         <td><a class="btn btn-primary btn-md" href="/admin/edit/{{id}}">Edit</a></td>
+                          <td><form method="post" action="/admin/{{id}}?_method=DELETE">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <input type="submit" class="btn btn-yellow" value="Delete">
+                        </form></td>
+                        <td><a class="btn btn-danger btn-md" href="/admin/blacklist/{{id}}">blacklist</a></td>
+
+                       </tr>
+                       {{/each}}
+                     </tbody>
+                   </table>
+                 </div>
+               </div>
+             </div>
+           </div>

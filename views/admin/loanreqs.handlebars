@@ -1,0 +1,40 @@
+
+
+{{>_admin_sidebar}}
+    <div class="main-panel">
+    {{>_navbar}}
+    <div class="content">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-md-12">
+             <div class="card">
+               <div class="card-header card-header-primary">
+                 <h4 class="card-title ">Loan request Report</h4>
+                 <p class="card-category"></p>
+               </div>
+               <div class="card-body">
+                 <div class="table-responsive">
+                   <table class="table">
+                     <thead class=" text-primary">
+                       <th>Name</th>
+                       <th>Phone</th>
+                       <th>Email</th>
+                       <th>Loan amount</th>
+                       <th>Date</th>
+                     </thead>
+                     <tbody>
+                        {{#each loanreqs }}
+                       <tr>
+                         <td>{{fname}}</td>
+                         <td>{{phone}}</td>
+                         <td>{{email}}</td>
+                         <td class="text-primary">Ksh. {{amount}}</td>
+                         <td>{{date}}</td>
+                       </tr>
+                       {{/each}}
+                     </tbody>
+                   </table>
+                 </div>
+               </div>
+             </div>
+           </div>

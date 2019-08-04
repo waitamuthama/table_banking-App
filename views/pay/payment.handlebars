@@ -1,0 +1,70 @@
+
+{{>_sidebar}}
+    <div class="main-panel">
+    {{>_navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container">
+
+            outstanding loan  balance is:{{user.loanamount}}
+          </div>
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Make Loan Payment</h4>
+                  <p class="card-category">Complete your loan payment transacton</p>
+                </div>
+                <div class="card-body">
+
+                  {{>_msg}}
+                  {{>_errors}}
+
+                  <form class="" action="/pay/payment" method="post">
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">name</label>
+                          <input type="text" class="form-control" value="{{user.firstName}}" name="fname" >
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control" value="{{user.email}}" name="email" >
+                        </div>
+                      </div>
+
+
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">phone</label>
+                          <input type="text" class="form-control" value="{{user.phone}}" name="phone" >
+                        </div>
+                      </div>
+
+
+                      <hr>
+                      <div class="container info">
+                        <h4>Enter amount to pay loan</h4>
+                      </div>
+                      <hr>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Enter Amount</label>
+                          <input type="number"  name="amount" value="" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Make Loan Payment</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

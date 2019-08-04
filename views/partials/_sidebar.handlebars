@@ -1,0 +1,114 @@
+<!--====================claiminterest modal===========================-->
+<div class="modal fade" id="modalinterestForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {{>_msg}}
+      {{>_errors}}
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">CLAIM YOUR INTEREST OF Ksh. {{user.interest}} </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="" action="/users/claiminterest/{{user.id}}" method="post">
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="orangeForm-name" value="{{user.firstName}}" name="fname" class="form-control validate" readonly>
+          <label  data-success="right"  for="orangeForm-name">Your Name</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="orangeForm-email" value="{{user.email}}" name="email"  class="form-control validate" readonly>
+          <label  data-success="right" for="orangeForm-email">Your email</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="number" id="orangeForm-pass" value="{{user.interest}}" name="amount" class="form-control validate" readonly>
+          <label  data-success="right" for="orangeForm-pass"> interest amount </label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-deep-orange">Claim interest</button>
+      </div>
+
+    </form>
+    </div>
+  </div>
+</div>
+
+<!--======================claiminterest end===========================-->
+
+
+
+
+
+
+
+
+<div class="sidebar" id="sidebar"data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+  <div class="logo">
+    <a class="simple-text logo-normal">
+    welcome </br>
+    {{user.firstName}}
+    </a>
+  </div>
+
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item active  ">
+        <a class="nav-link" href="/users/index">
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link" href="/account/create">
+          <i class="material-icons">person</i>
+          <p>Create Account</p>
+        </a>
+      </li>
+
+      {{!-- <li class="nav-item ">
+        <a class="nav-link" href="/user/session">
+          <i class="material-icons">person</i>
+          <p>finance session reporting</p>
+        </a>
+      </li> --}}
+
+      <li class="nav-item ">
+      <a class="nav-link" href="/deposit/index">
+      <i class="material-icons">content_paste</i>
+      <p> Deposit Reports</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/pay/index/{{user.id}}">
+          <i class="material-icons">library_books</i>
+          <p>Loan payment Reports</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/loan/index/{{user.id}}">
+          <i class="material-icons">bubble_chart</i>
+          <p>loan request reports</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="modal" data-backdrop="static" data-target="#modalinterestForm">
+          <i class="material-icons">notifications</i>
+          <p>Claim interest</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/interest/index/{{user.id}}">
+          <i class="material-icons">notifications</i>
+          <p>Claimed interest</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

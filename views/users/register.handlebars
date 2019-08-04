@@ -1,0 +1,77 @@
+
+        <!--================ Start Registration Area =================-->
+        <div class="main-panel">
+                 <div class="container-fluid">
+                     {{>_errors}}
+                      {{>_msg}}
+                      <div class="col-md-6">
+                        <div class="card">
+                          <div class="card-header">
+                            <h4 class="card-title text-center">Register to create account</h4>
+                          </div>
+                          <div class="card-body">
+                            <form class="" id="registerform" action="/users/register" method="post">
+                              <br>
+                              <a href="/auth/google">
+                              <div class="card-header card-header-danger">
+                              <h4 class="card-title text-center">Sign up with google</h4>
+                              </div>
+                            </a>
+                              <hr>
+
+                            <a href="/auth/facebook">
+                            <div class="card-header card-header-info">
+                            <h4 class="card-title text-center">Sign up with google</h4>
+                            </div>
+                            </a>
+                            <br>
+                            <hr>
+
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">First Name</label>
+                                    <input type="text" id="fname" class="form-control" value="" name="firstName" >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Last Name</label>
+                                    <input type="text" id="lname" class="form-control" value="" name="lastName" >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Email</label>
+                                    <input type="email" id="email" class="form-control" value="" name="email" >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Password</label>
+                                    <input type="password"  id="password" class="form-control" value="" name="password" >
+                                  </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="bmd-label-floating">Confirm Password</label>
+                                    <input type="password" class="form-control" value="" name="password1" >
+                                  </div>
+                                </div>
+
+                                <button type="submit" id="register" class="btn btn-success btn-block" name="button">Submit</button>
+                                <div class="container mt-3 ">
+                                  <p><a href="/users/login">Login</a></p>
+                                </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+          <!--================ End Registration Area =================-->

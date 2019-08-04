@@ -1,0 +1,179 @@
+
+
+<!-- large size Modal -->
+<div class="modal fade" id="Modal-large-demo" tabindex="-1" role="dialog" aria-labelledby="Modal-large-demo-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        {{!-- <section class="blog_area section_gap"> --}}
+          <div class="container text-success">
+            <h1>Update your profile {{user.firstName}}</h1>
+          </div>
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-4">
+                      <div class="blog_right_sidebar">
+                          <aside class="single_sidebar_widget author_widget">
+                              <img class="author_img rounded-circle" src="/images/uploads/{{user.image}}" alt="">
+                              <h4>{{user.firstName}} {{user.lastName}}</h4>
+                              <p>member</p>
+                              <div class="social_icon">
+                                  <a href="#"><i class="ti-facebook"></i></a>
+                                  <a href="#"><i class="ti-twitter"></i></a>
+                                  <a href="#"><i class="ti-github"></i></a>
+                                  <a href="#"><i class="ti-linkedin"></i></a>
+                              </div>
+                              <p>Never say goodbye before the end it comes</p>
+                              <div class="br"></div>
+                          </aside>
+                      </div>
+                  </div>
+                    <div class="col-lg-8">
+                        <div class="blog_left_sidebar">
+                            <article class="row blog_item">
+                              <form class="" enctype="multipart/form-data" action="/users/profile/{{user.id}}" method="post">
+                              <div class="modal-body mx-3">
+                                <div class="md-form mb-5">
+                                  <input type="text" id="firstName"  value="{{user.firstName}}" name="fname" class="form-control validate" >
+                                  <label  data-success="right" >Your Name</label>
+                                </div>
+                                <div class="md-form mb-5">
+                                  <input type="email" id="email"  value="{{user.email}}" name="email"  class="form-control validate" >
+                                  <label  data-success="right" >Your email</label>
+                                </div>
+
+                                <div class="md-form mb-4">
+                                  <input type="number" id="phone" value="{{user.phone}}" name="phone" class="form-control validate">
+                                  <label data-error="wrong" data-success="right" for="orangeForm-phone">Your Phone</label>
+                                </div>
+
+                                <div class="md-form mb-4">
+                                  <input type="text" id="location" value=" {{user.location}}" name="location" class="form-control validate">
+                                  <label data-error="wrong" data-success="right" for="orangeForm-pass"> location </label>
+                                </div>
+                                  <input type="file" name="image" value="{{user.image}}">
+                              </div>
+                              <div class="modal-footer d-flex justify-content-center">
+                                <button type="submit" id="profile" class="btn btn-deep-orange">Update Now</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                              </div>
+                              </form>
+                            </article>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--=====================Profile Modal end=========================-->
+
+
+
+
+
+
+
+<!--================profile Area =================-->
+{{>_navbar}}
+   <section class="blog_area section_gap">
+       <div class="container">
+         {{>_errors}}
+         {{>_msg}}
+           <div class="row">
+
+             <div class="col-lg-4 text-center">
+                 <div class="blog_right_sidebar">
+
+                   <aside class="single_sidebar_widget search_widget">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search here">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button"><i class="ti-search"></i></button>
+                              </span>
+                          </div><!-- /input-group -->
+                          <div class="br"></div>
+                      </aside>
+
+                     <aside class="single_sidebar_widget author_widget">
+                         <img class="author_img rounded-circle" src="/images/uploads/{{user.image}}" alt="">
+                         <h4>{{user.firstName}} {{user.lastName}}</h4>
+                         <p>member</p>
+                         <div class="social_icon">
+                             <a href="#"><i class="ti-facebook"></i></a>
+                             <a href="#"><i class="ti-twitter"></i></a>
+                             <a href="#"><i class="ti-github"></i></a>
+                             <a href="#"><i class="ti-linkedin"></i></a>
+                         </div>
+                         <p>Never say goodbye before the end it comes</p>
+                         <div class="br"></div>
+                     </aside>
+
+                 </div>
+             </div>
+
+
+
+
+               <div class="col-lg-8">
+                   <div class="blog_left_sidebar">
+                       <article class="row blog_item">
+                           <div class="col-md-3 text-justify">
+                               <div class="blog_info text-center">
+                                   {{!-- <div class="post_tag"> --}}
+                                       <h3>Outstanding loan :{{user.loanamount}} </h3>
+                                       <hr>
+                                       <h3>Interest {{user.interest}}</h3>
+                                       <hr>
+                                   {{!-- </div> --}}
+
+                                       <h3>phone: {{user.phone}}</h3>   <hr>
+
+                                       <h6>Date joined:<a href=""> {{user.date}}</i></a></h6>
+                                       <hr>
+                                       <h4>location: {{user.location}}</h4>
+
+                               </div>
+                           </div>
+                           <div class="col-md-9 ">
+                               <div class="blog_post">
+                                   {{!-- <img class="image" src="/images/uploads/{{user.image}}" alt=""> --}}
+                                   <div class="blog_details">
+                                       <a href="single-blog.html">
+                                           <h2>About me</h2>
+                                       </a>
+                                       <p>{{user.about}}</p>
+                                     <button type="button" class="nav-link blog_btn btn-warning" data-toggle="modal" data-backdrop="static" data-target="#Modal-large-demo" name="button">
+                                        <h3> Update Profile </h3>
+                                     </button>
+
+                                     <div class="container members col-md-12">
+                                       <p><h1>Fellow members</h1><p>
+                                         <div class="row">
+                                           {{#each users}}
+                                           <div class="col-md-4 text-center">
+                                             <img class="author_img rounded-circle" src="/images/uploads/{{image}}" alt="">
+                                             <h4>{{firstName}}</h4>
+                                           </div>
+                                           <hr>
+                                           {{/each}}
+                                         </div>
+                                     </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </article>
+                   </div>
+                   <hr>
+               </div>
+           </div>
+       </div>
+   </section>

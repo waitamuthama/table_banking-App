@@ -1,0 +1,302 @@
+
+{{>_sidebar}}
+    <div class="main-panel">
+    {{>_navbar}}
+
+      <div class="content">
+        <div class="container col-md-12">
+
+          {{>_msg}}
+          {{>_errors}}
+<!--================================================================--->
+<div class="row">
+
+<!-- Modal  paypal -->
+<div class="modal fade" id="paypalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Create Account by paypal payment </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <form action="/charge" method="post">
+
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{stripePublishableKey}}"
+                    data-key="{data-key goes here}"
+                    data-amount="500"
+                    data-name="Table-Banking System"
+                    data-description="Account creation Payment"
+                    data-image=""
+                    data-locale="auto">
+                </script>
+                <script>
+                  // Hide default stripe button
+                  document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+                </script>
+
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="orangeForm-name" value="{{user.firstName}}" name="fname" class="form-control validate">
+          <label data-error="wrong" data-success="right"  for="orangeForm-name">Your Name</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="orangeForm-email" value="{{user.email}}" name="email"  class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-deep-orange">Create Account</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#paypalForm">Continue with Paypal</a>
+</div>
+          <!--==============end modAL paypal===================-->
+
+
+<!-- Modal cash Payment -->
+
+<div class="modal fade" id="modalcashForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {{>_msg}}
+      {{>_errors}}
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Create Account by cash payment </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="" action="/account/create" method="post">
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="orangeForm-name" value="{{user.firstName}}" name="fname" class="form-control validate" readonly>
+          <label  data-success="right"  for="orangeForm-name">Your Name</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="orangeForm-email" value="{{user.email}}" name="email"  class="form-control validate" readonly>
+          <label  data-success="right" for="orangeForm-email">Your email</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="number" id="orangeForm-pass" value="{{user.phone}}" name="phone" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your Phone</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="number" id="orangeForm-pass" value=" " name="amount" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass"> Enter Amount </label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-deep-orange">Create Account</button>
+      </div>
+
+    </form>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn  btn-rounded mb-4" data-toggle="modal" data-backdrop="static" data-target="#modalcashForm">Continue with Cash</a>
+</div>
+
+          <!--==============end modAL cash payment===================-->
+
+
+          <!----=============Mpesa Modal========================---->
+          <div class="modal fade" id="modalmpesaForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Create Account by mpesa payment </h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form class="" action="/account/create" method="post">
+                <div class="modal-body mx-3">
+                  <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="orangeForm-name" value="{{user.firstName}}" name="fname" class="form-control validate">
+                    <label data-error="wrong" data-success="right"  for="orangeForm-name">Your Name</label>
+                  </div>
+                  <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="orangeForm-email" value="{{user.email}}" name="email"  class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+                  </div>
+
+                  <div class="md-form mb-4">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="number" id="orangeForm-pass" value="{{user.phone}}" name="phone" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Your Phone</label>
+                  </div>
+
+                  <div class="md-form mb-4">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="number" id="orangeForm-pass" value=" " name="amount" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-pass"> Enter Amount </label>
+                  </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                  <button type="submit" onclick="$('#modalcashForm').modal({'backdrop': 'static'});" class="btn btn-deep-orange">Create Account</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <a href="" class="btn btn-success btn-rounded mb-4" data-toggle="modal" data-target="#modalmpesaForm">Continue with Mpesa</a>
+          </div>
+          <!----=============End Mpesa Modal========================---->
+
+
+
+
+{{!--
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Create Account</h4>
+                  <p>Cash payment to activate account</p>
+                </div>
+                <div class="card-body">
+
+
+
+                  <form class="" action="/account/create" method="post">
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">First name</label>
+                          <input type="text" class="form-control" value="{{user.firstName}} " name="fname" >
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address:</label>
+                          <input type="email" class="form-control" value="{{user.email}}" name="email" >
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Phone No:</label>
+                          <input type="number" class="form-control" value="{{user.phone}}" name="phone" >
+                        </div>
+                      </div>
+
+                        <div>
+                        <div class="form-group">
+                          <label class="bmd-label-floating text-info">Acc. activation fee Amount Ksh.500</label>
+                          <input type="number"  name="amount" placeholder=" Enter Ksh.500" value="{{user.amount}}" class="form-control">
+                        </div>
+                      </div>
+
+                      <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Choose payment mode
+            </button>
+
+                    {{!-- <button type="submit" class="btn btn-primary pull-right">Create Account</button> --}}
+                    {{!-- <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!--==============================paypal===================================-->
+
+
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-header card-header-info">
+                  <h4 class="card-title">Create Account</h4>
+                  <p>Paypal payment to activate account</p>
+                </div>
+                <div class="card-body">
+
+
+
+                  <form action="/charge" method="post">
+
+                            <script
+                              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                              data-key="{{stripePublishableKey}}"
+                              data-key="{data-key goes here}"
+                              data-amount="500"
+                              data-name="Table-Banking System"
+                              data-description="Account creation Payment"
+                              data-image=""
+                              data-locale="auto">
+                          </script>
+                          <script>
+                            // Hide default stripe button
+                            document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+                          </script>
+
+
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">First name</label>
+                          <input type="text" class="form-control" value="{{user.firstName}} " name="fname" >
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address:</label>
+                          <input type="email" class="form-control" value="{{user.email}}" name="email" >
+                        </div>
+                      </div> --}}
+
+
+                      {{!-- <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Phone No:</label>
+                          <input type="number" class="form-control" value="{{user.phone}}" name="phone" >
+                        </div>
+                      </div> --}}
+
+                        {{!-- <div>
+                        <div class="form-group">
+                          <label class="bmd-label-floating text-info">Acc. activation fee Amount Ksh.500</label>
+                          <input type="number"  name="amount" placeholder=" Enter Ksh.500" value="{{user.amount}}" class="form-control">
+                        </div>
+                      </div> --}}
+
+                      {{!-- <button type="submit" class="btn btn-info pull-right">Create Account</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>  --}}
+
+
+          </div>
+        </div>
+        </div>
+        </div>

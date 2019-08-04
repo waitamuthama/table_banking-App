@@ -1,0 +1,103 @@
+
+<!--=====================start comment modal============================-->
+<div class="modal fade" id="reply" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
+   <div class="modal-header text-center">
+     <h4 class="modal-title w-100 font-weight-bold">Comment Reply</h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <form action="/comment/reply/{{comment.id}}" method="post">
+   <div class="modal-body mx-3">
+     <div class="md-form mb-4">
+       <i class="fas fa-lock prefix grey-text"></i>
+       <textarea name="message" rows="8" cols="80"></textarea>
+       <label data-error="wrong" data-success="right" for="orangeForm-pass"> Enter message </label>
+     </div>
+   </div>
+   <div class="modal-footer d-flex justify-content-center">
+     <button type="submit" class="btn btn-deep-orange">Reply</button>
+   </div>
+ </form>
+ </div>
+</div>
+</div>
+<!--===================== end comment modal============================-->
+
+
+            {{>_sidebar}}
+            <div class="main-panel">
+            {{>_navbar}}
+            <div class="content">
+            <div class="container-fluid">
+              {{>_msg}}
+              {{>_errors}}
+    <!--================Blog Area =================-->
+    {{!-- <section class="blog_area single-post-area section_gap">
+        <div class="container"> --}}
+        <div class="breadcrumb ">
+          <h2 class="text-center">Comments</h2>
+          </div>
+        </div>
+                <div class="col-lg-12 posts-list">
+                    <div class="">
+                        <div class="comment-list">
+                            <div class="single-comment  d-flex">
+                              {{#each comment}}
+                                    <div class="container">
+                                        <h3><a href="#"><b>{{firstName}} {{lastName}}</b></a></h3>
+                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        <p class="comment">
+                                            <h5>{{message}}</h5>
+                                            <div class="container text-right">
+                                              <a href="" class="btn btn-danger" data-toggle="modal" data-backdrop="static" data-target="#reply">
+                                                Reply
+                                              </a>
+                                            </div>
+                                            <h3>Replies</h3>
+                                            <div class="container ml-5">
+                                              <p>From: muthama ,December 4, 2017 at 3:12 pm<p>
+                                              <h5>Thats a total shit</h5>
+                                            </div>
+                                            <hr>
+                                        </p>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                {{!-- <div class="col-lg-4">
+                        <div class="blog_right_sidebar">
+                            <aside class="single_sidebar_widget search_widget">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search Posts">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="ti-search"></i></button>
+                                    </span>
+                                </div><!-- /input-group -->
+                                <div class="br"></div>
+                            </aside>
+                            <aside class="single_sidebar_widget author_widget">
+                                <img class="author_img rounded-circle" src="/images/uploads/{{user.image}}" alt="">
+                                <h4>{{user.firstName}} {{user.lastName}}</h4>
+                                <div class="social_icon">
+                                    <a href="#"><i class="ti-facebook"></i></a>
+                                    <a href="#"><i class="ti-twitter"></i></a>
+                                    <a href="#"><i class="ti-github"></i></a>
+                                    <a href="#"><i class="ti-linkedin"></i></a>
+                                </div>
+                                <p>Never say goodbye till the end comes</p>
+                                <div class="br"></div>
+                            </aside>
+
+                        </div>
+                    </div> --}}
+            </div>
+        </div>
+    {{!-- </section> --}}
+    <!--================Blog Area =================-->
